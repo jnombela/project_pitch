@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spain weather. Normal rain values 1981-2010</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Spain weather. Normal rain values 1981-2010">
+  <meta name="author" content="Justo Nombela">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Spain weather. Normal rain values 1981-2010</h1>
+    <h2>Project pitch - shiny app</h2>
+    <p>Justo Nombela<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Where it rains more, and less, in Spain?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This shiny app analyzes normal rain quantities in Spain. It lets you know how much it rains per region, and also know detail data of an specific region quickly. A map will let you zoom in and zoom out to see the details.</p>
+
+<p>Please visit <a href="https://jnombela.shinyapps.io/dataprod-project/">our app</a> and you&#39;ll see that it rains much more in the north of Spain, which is the expected, an discover surprises, like high rain values in the south of Andalucia region (between Cádiz and Málaga). </p>
+
+<p>Data from <a href="http://www.aemet.es/es/portada" title="Agencia Estatal de Meteorología">AEMET</a>. This Agency publishes studies and data from 2,621 weather stations spread all over the country. In our case we used monthly rainfall normal values study, ftom 1981 to 2010. For more information please follow <a href="http://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/Valores_mensuales_1981_2010">this link</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Rainfall values</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="./assets/img/Captura.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>App structure</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This app is inspired in <a href="http://shiny.rstudio.com/gallery/superzip-example.html">Shiny superZip example</a>. It has two tabs: one for the map of Spain, and another for explorating data.</p>
+
+<ul>
+<li><p>Over the map you can see a circle for each weather station. Colour and size of circles indicates the rainfall in each station per year. On the down-left corner you can see a legend with color code. You can click on every circle to see a popup with name of the station and total rainfall in a year.</p></li>
+<li><p>In the second tab, data explorer, you can see rainfall data of every station. Also you can filter by Province and Watershed, and also by name in every column</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Behind the scenes - technologies used</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><em>Shiny</em></li>
+<li><em>data.table::fread</em> to read fast original files</li>
+<li><em>rgdal</em> package to transform UTC geographical coordinates into decimal format (as needed in leaflet map)</li>
+<li><em>dplyr</em> package to treat data</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Behind the scenes - software components</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p><em>iconv</em> functions to transform Latin-1 character set (original data) to UTF-8 (as needed in shinyapps.io linux servers)</p></li>
+<li><p><em>Leaflet</em> library for R and <em>OpenStreetMaps</em> to render maps and locate and paint the circles in another layer.</p></li>
+<li><p><em>DT</em> library to render data and let explore the user</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Where it rains more, and less, in Spain?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Rainfall values'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='App structure'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Behind the scenes - technologies used'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Behind the scenes - software components'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
